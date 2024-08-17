@@ -32,14 +32,7 @@ func NewTrack(distance int) Track {
 // Drive drives the car one time. If there is not enough battery to drive one more time,
 // the car will not move.
 func Drive(car Car) Car {
-	if car.battery-car.batteryDrain < 0 {
-		return Car{
-			speed:        car.speed,
-			batteryDrain: car.batteryDrain,
-			battery:      car.battery,
-			distance:     car.distance,
-		}
-	} else {
+	if car.battery-car.batteryDrain >= 0 {
 		return Car{
 			speed:        car.speed,
 			batteryDrain: car.batteryDrain,
@@ -47,19 +40,18 @@ func Drive(car Car) Car {
 			distance:     car.distance + car.speed,
 		}
 	}
+	return car
 }
 
 // CanFinish checks if a car is able to finish a certain track.
 func CanFinish(car Car, track Track) bool {
 
+	// second = berapa kali car m/s
+
 	second := car.battery / car.batteryDrain
 
 	carDistance := second * car.speed
 
-	if carDistance >= track.distance {
-		return true
-	} else {
-		return false
-	}
+	return carDistance >= track.distance
 
 }
