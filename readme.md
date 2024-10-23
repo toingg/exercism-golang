@@ -3,3 +3,5 @@ This repository contains my solutions to various Go (Golang) exercises from the 
 
 ## Public Profile on Exercism
 https://exercism.org/profiles/toingg
+
+https://exercism.org/profiles/toingg/solutions?track_slug=go
